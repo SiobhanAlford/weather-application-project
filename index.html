@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App Siobhan Alford</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script
+      src="https://kit.fontawesome.com/c67cc13890.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="central-width-section">
+        <div class="row search-bar-section">
+          <div class="col-12 p-1">
+            <form class="change-city-form" id="search-city-form">
+              <div class="change-city-box">
+                <input
+                  type="text"
+                  class="form-control change-city-box"
+                  id="search-city"
+                  placeholder="Change city..."
+                />
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary search-btn"
+                id="search-city-button"
+              >
+                Search
+              </button>
+            </form>
+            <button class="btn btn-primary geo-btn" id="geo-city-button">
+              <i class="fas fa-map-marker-alt"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="row today-forecast-section">
+          <div class="col-12 p-1">
+            <div class="date-time">
+              <span id="date">Friday 9<sup>th</sup> July 2021</span><br />
+              <strong><span id="time">14.43 GMT</span></strong>
+            </div>
+            <div class="today-weather-img-section">
+              <img
+                src="images/sun-cloud.png"
+                class="today-weather-img"
+                alt="Image of weather today"
+              />
+            </div>
+            <h1 id="city-display">London</h1>
+            <div class="country" id="country">United Kingdom</div>
+            <div class="temperature-section">
+              <span class="temperature" id="main-temperature">20</span>
+              <div
+                class="btn-group degrees-btn-group"
+                role="group"
+                aria-label="Basic radio toggle button group"
+              >
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="btnradio"
+                  id="btnradio1"
+                  autocomplete="off"
+                  checked
+                />
+                <label
+                  class="btn btn-outline-secondary degrees-btns"
+                  for="btnradio1"
+                  >°C</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="btnradio"
+                  id="btnradio2"
+                  autocomplete="off"
+                />
+                <label
+                  class="btn btn-outline-secondary degrees-btns"
+                  for="btnradio2"
+                  >°F</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row future-forecast-row-1">
+          <div class="col me-1 day-of-week-box">
+            <div class="future-weather-img-section">
+              <img src="images/sun.png" class="future-weather-img" />
+            </div>
+            <div class="future-weather-temp" id="day1">24°C</div>
+          </div>
+          <div class="col me-1 day-of-week-box">
+            <div class="future-weather-img-section">
+              <img src="images/clouds.png" class="future-weather-img" />
+            </div>
+            <div class="future-weather-temp" id="day2">17°C</div>
+          </div>
+          <div class="col me-1 day-of-week-box">
+            <div class="future-weather-img-section">
+              <img src="images/rain.png" class="future-weather-img" />
+            </div>
+            <div class="future-weather-temp" id="day3">18°C</div>
+          </div>
+          <div class="col me-1 day-of-week-box">
+            <div class="future-weather-img-section">
+              <img src="images/sun-rain-cloud.png" class="future-weather-img" />
+            </div>
+            <div class="future-weather-temp" id="day4">19°C</div>
+          </div>
+          <div class="col day-of-week-box">
+            <div class="future-weather-img-section">
+              <img src="images/sun-cloud.png" class="future-weather-img" />
+            </div>
+            <div class="future-weather-temp" id="day5">21°C</div>
+          </div>
+        </div>
+
+        <div class="row future-forecast-row-2">
+          <div class="col me-1 day-of-week-title">SAT</div>
+          <div class="col me-1 day-of-week-title">SUN</div>
+          <div class="col me-1 day-of-week-title">MON</div>
+          <div class="col me-1 day-of-week-title">TUE</div>
+          <div class="col day-of-week-title">WED</div>
+        </div>
+      </div>
+    </div>
+    <script src="weather-app.js"></script>
+  </body>
+</html>

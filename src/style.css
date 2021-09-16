@@ -1,0 +1,177 @@
+body {
+  background-image: url("../images/dotty-background.jpg");
+  background-size: 100%;
+  background-color: #d5c0d3;
+  font-family: "Patrick Hand", Arial, Helvetica, sans-serif;
+}
+
+.central-width-section {
+  max-width: 600px;
+  margin: 40px auto;
+}
+.search-bar-section {
+  background-color: white;
+  border: 2px solid #204a5d;
+  border-radius: 5px;
+  margin: 20px 40px 10px 40px;
+}
+
+.change-city-box {
+  display: inline;
+  max-width: 60%;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.change-city-form {
+  display: inline;
+  font-family: "Dosis", sans-serif;
+}
+
+.search-btn,
+.geo-btn {
+  display: inline;
+  max-width: 20%;
+  background-color: #dac3d7;
+  border: 1px solid #dac3d7;
+  font-family: "Dosis", sans-serif;
+  font-size: 15px;
+  line-height: 18px;
+  margin-top: -2px;
+}
+
+.search-btn:hover,
+.geo-btn:hover,
+.search-btn:active,
+.geo-btn:active,
+.search-btn:focus,
+.geo-btn:focus {
+  background-color: #b5a2b2;
+  border-color: #b5a2b2;
+}
+
+.today-forecast-section {
+  background-color: white;
+  border: 2px solid #204a5d;
+  border-radius: 5px;
+  margin: 10px 40px;
+}
+
+.date-time {
+  font-size: 12px;
+  font-family: "Dosis", sans-serif;
+  margin: 3px 0 0 3px;
+  color: #204a5d;
+}
+
+.today-weather-img-section {
+  width: 154px;
+  height: 100px;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto;
+}
+
+.today-weather-img {
+  margin: -44px 0px 0px -19px;
+  width: 190px;
+  height: 190px;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+h1,
+.country {
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+  color: #204a5d;
+}
+
+.country {
+  font-size: 20px;
+}
+
+.degrees-btn-group {
+  left: 5px;
+  bottom: 30px;
+}
+.degrees-btns {
+  font-family: "Dosis", sans-serif;
+  font-size: 10px;
+  padding: 2px 4px;
+  color: #204a5d;
+  border-color: #204a5d;
+}
+
+.degrees-btns:hover {
+  background-color: #204a5d;
+  border-color: #204a5d;
+}
+
+.btn-check:active + .btn-outline-secondary,
+.btn-check:checked + .btn-outline-secondary,
+.btn-outline-secondary.active,
+.btn-outline-secondary.dropdown-toggle.show,
+.btn-outline-secondary:active {
+  color: #fff;
+  background-color: #204a5d;
+  border-color: #204a5d;
+}
+
+.temperature-section {
+  text-align: center;
+  margin: 10px 0 10px 35px;
+}
+.temperature {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: #204a5d;
+  margin-bottom: 10px;
+}
+
+.future-forecast-row-1 {
+  margin: 10px 40px 2px 40px;
+}
+
+.day-of-week-box {
+  background-color: white;
+  border: 2px solid #204a5d;
+  border-radius: 5px;
+  text-align: center;
+  padding: 0;
+}
+
+.future-weather-img-section {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto;
+}
+.future-weather-img {
+  margin: -5px 0px 0px -8px;
+  width: 75px;
+  height: auto;
+}
+
+.future-weather-temp {
+  text-align: center;
+  font-size: 14px;
+  padding-bottom: 5px;
+  color: #204a5d;
+}
+
+.future-forecast-row-2 {
+  margin: 0 40px;
+}
+
+.day-of-week-title {
+  text-align: center;
+  font-size: 24px;
+  color: #204a5d;
+}
