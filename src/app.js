@@ -52,20 +52,17 @@ function currentDateTime(date) {
 }
 
 function showCityTemp(response) {
-  
   console.log(response.data);
-  
+
   let temperature = Math.round(response.data.main.temp);
   let country = response.data.sys.country;
   let city = response.data.name;
   let description = response.data.weather[0].description;
   let wind = Math.round(response.data.wind.speed);
   let humidity = response.data.main.humidity;
-  
+
   let cityDisplay = document.querySelector("#city-display");
   cityDisplay.innerHTML = city;
-  
-  
 
   let descriptionDisplay = document.querySelector("#weather-description");
   descriptionDisplay.innerHTML = description;
@@ -78,12 +75,9 @@ function showCityTemp(response) {
 
   let tempDisplay = document.querySelector("#main-temperature");
   tempDisplay.innerHTML = temperature;
- 
 }
 
 function searchCity(city) {
-  
-
   let apiKey = "c3a61a564272a1eaa5cf5ae99e2d35f2";
   let units = "metric";
   let apiUrlEndPoint = "https://api.openweathermap.org/data/2.5/weather";
@@ -93,33 +87,37 @@ function searchCity(city) {
 }
 
 function handleCitySubmit(event) {
-
   event.preventDefault();
   let cityInput = document.querySelector("#search-city");
   let city = cityInput.value;
 
-  showCity(city);
-
+  searchCity(city);
 }
-
-
-
-
 
 function showGeoCityTemp(response) {
   console.log(response);
-  
+
   let temperature = Math.round(response.data.main.temp);
-  let city = response.data.name;
   let country = response.data.sys.country;
+  let city = response.data.name;
+  let description = response.data.weather[0].description;
+  let wind = Math.round(response.data.wind.speed);
+  let humidity = response.data.main.humidity;
 
   let cityDisplay = document.querySelector("#city-display");
   cityDisplay.innerHTML = city;
 
-  let mainTemp = document.querySelector("#main-temperature");
-  mainTemp.innerHTML = temperature;
+  let descriptionDisplay = document.querySelector("#weather-description");
+  descriptionDisplay.innerHTML = description;
 
-  
+  let windDisplay = document.querySelector("#wind");
+  windDisplay.innerHTML = wind;
+
+  let humidityDisplay = document.querySelector("#humidity");
+  humidityDisplay.innerHTML = humidity;
+
+  let tempDisplay = document.querySelector("#main-temperature");
+  tempDisplay.innerHTML = temperature;
 }
 
 function showPosition(position) {
