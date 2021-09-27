@@ -83,7 +83,8 @@ h1 {
 }
 
 h1,
-.country {
+.weather-description,
+.wind-humidity-description {
   text-align: center;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -91,8 +92,12 @@ h1,
   color: #204a5d;
 }
 
-.country {
+.weather-description {
   font-size: 20px;
+}
+
+.wind-humidity-description {
+  font-size: 12px;
 }
 
 .degrees-btn-group {
@@ -189,5 +194,5 @@ h1,
 }
 
 .footer-url:hover {
-  color: #FC460F;
+  color: #FC460F
 }

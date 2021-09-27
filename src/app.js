@@ -52,25 +52,37 @@ function currentDateTime(date) {
 }
 
 function showCityTemp(response) {
+  
+  console.log(response.data);
+  
   let temperature = Math.round(response.data.main.temp);
   let country = response.data.sys.country;
+  let city = response.data.name;
+  let description = response.data.weather[0].description;
+  let wind = Math.round(response.data.wind.speed);
+  let humidity = response.data.main.humidity;
+  
+  let cityDisplay = document.querySelector("#city-display");
+  cityDisplay.innerHTML = city;
+  
+  
 
-  let mainTemp = document.querySelector("#main-temperature");
-  mainTemp.innerHTML = temperature;
+  let descriptionDisplay = document.querySelector("#weather-description");
+  descriptionDisplay.innerHTML = description;
 
-  let countryDisplay = document.querySelector("#country");
-  countryDisplay.innerHTML = country;
+  let windDisplay = document.querySelector("#wind");
+  windDisplay.innerHTML = wind;
+
+  let humidityDisplay = document.querySelector("#humidity");
+  humidityDisplay.innerHTML = humidity;
+
+  let tempDisplay = document.querySelector("#main-temperature");
+  tempDisplay.innerHTML = temperature;
+ 
 }
 
-function showCity(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#search-city");
-  let cityDisplay = document.querySelector("#city-display");
-  let city = cityInput.value;
-
-  if (cityInput.value) {
-    cityDisplay.innerHTML = `${city}`;
-  }
+function searchCity(city) {
+  
 
   let apiKey = "c3a61a564272a1eaa5cf5ae99e2d35f2";
   let units = "metric";
@@ -80,7 +92,23 @@ function showCity(event) {
   axios.get(apiUrl).then(showCityTemp);
 }
 
+function handleCitySubmit(event) {
+
+  event.preventDefault();
+  let cityInput = document.querySelector("#search-city");
+  let city = cityInput.value;
+
+  showCity(city);
+
+}
+
+
+
+
+
 function showGeoCityTemp(response) {
+  console.log(response);
+  
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
   let country = response.data.sys.country;
@@ -91,8 +119,7 @@ function showGeoCityTemp(response) {
   let mainTemp = document.querySelector("#main-temperature");
   mainTemp.innerHTML = temperature;
 
-  let countryDisplay = document.querySelector("#country");
-  countryDisplay.innerHTML = country;
+  
 }
 
 function showPosition(position) {
@@ -107,7 +134,7 @@ function showPosition(position) {
   axios.get(apiUrl).then(showGeoCityTemp);
 }
 
-function showGeoCity(event) {
+function handleGeoSubmit(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
@@ -115,8 +142,10 @@ function showGeoCity(event) {
 let now = new Date();
 currentDateTime(now);
 
+searchCity("London");
+
 let cityForm = document.querySelector("#search-city-form");
-cityForm.addEventListener("submit", showCity);
+cityForm.addEventListener("submit", handleCitySubmit);
 
 let geoBtn = document.querySelector("#geo-city-button");
-geoBtn.addEventListener("click", showGeoCity);
+geoBtn.addEventListener("click", handleGeoSubmit);

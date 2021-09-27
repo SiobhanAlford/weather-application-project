@@ -40,6 +40,7 @@
                   class="form-control change-city-box"
                   id="search-city"
                   placeholder="Change city..."
+                  autocomplete="off"
                 />
               </div>
               <button
@@ -69,8 +70,10 @@
                 alt="Image of weather today"
               />
             </div>
-            <h1 id="city-display">London</h1>
-            <div class="country" id="country">United Kingdom</div>
+            <h1><span id="city-display">London</span></h1>
+            <div class="weather-description" id="weather-description">Black sky</div>
+            <div class="wind-humidity-description">Wind speed: <span id="wind">8</span> kph</div>
+              <div class="wind-humidity-description">Humidity: <span id="humidity">11</span>%</div>
             <div class="temperature-section">
               <span class="temperature" id="main-temperature">20</span>
               <div
