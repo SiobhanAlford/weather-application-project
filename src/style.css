@@ -84,7 +84,8 @@ h1 {
 
 h1,
 .weather-description,
-.wind-humidity-description {
+.wind-humidity-description,
+.country-description {
   text-align: center;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -92,8 +93,13 @@ h1,
   color: #204a5d;
 }
 
+.country-description {
+  font-size: 20px;
+}
+
 .weather-description {
   font-size: 20px;
+  margin-top: 20px;
 }
 
 .wind-humidity-description {
@@ -125,6 +131,7 @@ h1,
   color: #fff;
   background-color: #204a5d;
   border-color: #204a5d;
+  cursor: default;
 }
 
 .temperature-section {
@@ -189,10 +196,10 @@ h1,
 }
 
 .footer-url {
-  color: #D3BDD0;
+  color: #d3bdd0;
   text-decoration: none;
 }
 
 .footer-url:hover {
-  color: #FC460F
+  color: #fc460f;
 }
