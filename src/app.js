@@ -145,6 +145,9 @@ function showCityTemp(response) {
 
   let countryDisplay = document.querySelector("#country-display");
   countryDisplay.innerHTML = regionNames.of(country);
+
+  document.getElementById("btnradio1").checked = true; //check a radio button
+  document.getElementById("btnradio2").checked = false; //uncheck a radio button
 }
 
 function searchCity(city) {
