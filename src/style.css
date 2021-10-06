@@ -13,7 +13,7 @@ body {
   background-color: white;
   border: 2px solid #204a5d;
   border-radius: 5px;
-  margin: 20px 30px 10px 30px;
+  margin: 20px 15px 10px 15px;
 }
 
 .change-city-box {
@@ -54,7 +54,7 @@ body {
   background-color: white;
   border: 2px solid #204a5d;
   border-radius: 5px;
-  margin: 10px 30px;
+  margin: 10px 15px;
 }
 
 .date-time {
@@ -154,12 +154,12 @@ h1,
 }
 
 .future-forecast-row-1 {
-  margin: 10px 25px 2px 25px;
+  margin: 10px 12px 2px 12px;
 }
 
 .day-of-week-container {
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
 .day-of-week-box {
