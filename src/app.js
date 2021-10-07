@@ -51,6 +51,59 @@ function currentDateTime(date) {
   timeDisplay.innerHTML = `${formattedTime}`;
 }
 
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastDisplay = document.querySelector("#future-forecast");
+  let forecastHTML = `<div class="row future-forecast-row-1">`;
+  let days = ["Wed", "Thur", "Fri", "Sat", "Sun"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+			<div class="col day-of-week-container">
+            <div class="day-of-week-box">
+              <div class="future-weather-img-section">
+                <img
+                  src="images/sun.png"
+                  class="future-weather-img"
+                  id="future-weather-img"
+                />
+              </div>
+              <div class="future-weather-temp">
+                <span
+                  class="future-weather-temp-max"
+                  id="forecast-day1-temp-max"
+                  >22°</span
+                >
+                <span
+                  class="future-weather-temp-min"
+                  id="forecast-day1-temp-min"
+                  >18°</span
+                >
+              </div>
+            </div>
+            <div class="day-of-week-title" id="forecastDay1">${day}</div>
+            </div>
+			`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastDisplay.innerHTML = forecastHTML;
+}
+
+function getForecast(coords) {
+  let apiKey = "c3a61a564272a1eaa5cf5ae99e2d35f2";
+  let units = "metric";
+  let apiUrlEndPoint = "https://api.openweathermap.org/data/2.5/onecall";
+  let lat = coords.lat;
+  let lon = coords.lon;
+  let apiUrl = `${apiUrlEndPoint}?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=${units}&appid=${apiKey}`;
+
+  console.log(apiUrl);
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showCityTemp(response) {
   console.log(response.data);
 
@@ -148,6 +201,8 @@ function showCityTemp(response) {
 
   document.getElementById("btnradio1").checked = true; //check a radio button
   document.getElementById("btnradio2").checked = false; //uncheck a radio button
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -187,13 +242,11 @@ function handleGeoSubmit(event) {
 function displayFahTemp(event) {
   let tempDisplay = document.querySelector("#main-temperature");
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-
   tempDisplay.innerHTML = Math.round(fahrenheitTemp);
 }
 
 function displayCelTemp(event) {
   let tempDisplay = document.querySelector("#main-temperature");
-
   tempDisplay.innerHTML = Math.round(celsiusTemp);
 }
 
