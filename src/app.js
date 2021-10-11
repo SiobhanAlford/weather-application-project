@@ -1,4 +1,5 @@
-function currentDateTime(date) {
+function currentDateTime(timestamp) {
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -188,6 +189,9 @@ function showCityTemp(response) {
   let id = response.data.weather[0].id;
   let imgRef = weatherImageLogic(iconCode, id);
 
+  let lastUpdated = response.data.dt * 1000;
+  currentDateTime(lastUpdated);
+
   let mainImgDisplay = document.querySelector("#main-img");
   mainImgDisplay.setAttribute("src", imgRef);
   mainImgDisplay.setAttribute("alt", description);
@@ -263,9 +267,6 @@ function displayCelTemp(event) {
   let tempDisplay = document.querySelector("#main-temperature");
   tempDisplay.innerHTML = Math.round(celsiusTemp);
 }
-
-let now = new Date();
-currentDateTime(now);
 
 let celsiusTemp = null;
 
