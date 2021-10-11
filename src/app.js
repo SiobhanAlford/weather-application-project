@@ -51,16 +51,25 @@ function currentDateTime(date) {
   timeDisplay.innerHTML = `${formattedTime}`;
 }
 
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
   console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastDisplay = document.querySelector("#future-forecast");
   let forecastHTML = `<div class="row future-forecast-row-1">`;
-  let days = ["Wed", "Thur", "Fri", "Sat", "Sun"];
 
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
 			<div class="col day-of-week-container">
             <div class="day-of-week-box">
               <div class="future-weather-img-section">
@@ -74,18 +83,21 @@ function displayForecast(response) {
                 <span
                   class="future-weather-temp-max"
                   id="forecast-day1-temp-max"
-                  >22°</span
+                  >${Math.round(forecastDay.temp.max)}°</span
                 >
                 <span
                   class="future-weather-temp-min"
                   id="forecast-day1-temp-min"
-                  >18°</span
+                  >${Math.round(forecastDay.temp.min)}°</span
                 >
               </div>
             </div>
-            <div class="day-of-week-title" id="forecastDay1">${day}</div>
+            <div class="day-of-week-title" id="forecastDay1">${formatForecastDay(
+              forecastDay.dt
+            )}</div>
             </div>
 			`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastDisplay.innerHTML = forecastHTML;
