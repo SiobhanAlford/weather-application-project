@@ -60,12 +60,14 @@ function formatForecastDay(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastDisplay = document.querySelector("#future-forecast");
   let forecastHTML = `<div class="row future-forecast-row-1">`;
 
   forecast.forEach(function (forecastDay, index) {
+    let iconCode = forecastDay.weather[0].icon;
+    let id = forecastDay.weather[0].id;
+
     if (index < 5) {
       forecastHTML =
         forecastHTML +
@@ -74,7 +76,7 @@ function displayForecast(response) {
             <div class="day-of-week-box">
               <div class="future-weather-img-section">
                 <img
-                  src="images/sun.png"
+                  src="${weatherImageLogic(iconCode, id)}"
                   class="future-weather-img"
                   id="future-weather-img"
                 />
@@ -111,24 +113,10 @@ function getForecast(coords) {
   let lon = coords.lon;
   let apiUrl = `${apiUrlEndPoint}?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=${units}&appid=${apiKey}`;
 
-  console.log(apiUrl);
-
   axios.get(apiUrl).then(displayForecast);
 }
 
-function showCityTemp(response) {
-  console.log(response.data);
-
-  celsiusTemp = response.data.main.temp;
-  let country = response.data.sys.country;
-  let city = response.data.name;
-  let description = response.data.weather[0].description;
-  let wind = Math.round(response.data.wind.speed);
-  let humidity = response.data.main.humidity;
-  let iconCode = response.data.weather[0].icon;
-  let id = response.data.weather[0].id;
-  let imgRef = "images/cloud-small-sun.png";
-
+function weatherImageLogic(iconCode, id) {
   //image logic
 
   //Clear Sky Day
@@ -185,6 +173,20 @@ function showCityTemp(response) {
   if (iconCode === "13d" || iconCode === "13n") {
     imgRef = "images/snow.png";
   }
+
+  return imgRef;
+}
+
+function showCityTemp(response) {
+  celsiusTemp = response.data.main.temp;
+  let country = response.data.sys.country;
+  let city = response.data.name;
+  let description = response.data.weather[0].description;
+  let wind = Math.round(response.data.wind.speed);
+  let humidity = response.data.main.humidity;
+  let iconCode = response.data.weather[0].icon;
+  let id = response.data.weather[0].id;
+  let imgRef = weatherImageLogic(iconCode, id);
 
   let mainImgDisplay = document.querySelector("#main-img");
   mainImgDisplay.setAttribute("src", imgRef);
